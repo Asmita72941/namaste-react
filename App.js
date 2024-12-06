@@ -1,90 +1,36 @@
-// const heading = React.createElement(
-//     "h1", 
-//     {id: "heading", xyz : "abc"}, "Hello World from React"
-// );
+import React from "react";
+import ReactDOM from 'react-dom/client';
 
-// console.log(heading); // React element - object
+// React.createElement => ReactElement - JS Object => HTMLElement(render)
 
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading); // passing react element
+// This is how we create react element using react
 
-// --------------------------------------------------------------
-
-// How do you create this type of structure using React
-/* <div id="parent">
-    <div id="child">
-        <h1>I am h1 tag</h1>
-    </div>
-</div> */
-
-// How do we create nested element
-
-// const parent = React.createElement(
-//     "div", 
-//     {id: "parent"}, 
-//     React.createElement(
-//         "div", 
-//         {id: "child"},
-//          React.createElement(
-//             "h1", {}, "I am h1 tag")
-//     )
-// );
+// const heading = React.createElement("div", {id:"heading"}, "Namaste React");
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// root.render(parent);
-// ---------------------------------------------------------------------
+// root.render(heading);
 
-// suppose if we have to create sibling - then you have to convert third argument as an array
-/* <div id="parent">
-    <div id="child">
-        <h1>I am h1 tag</h1> // Now these two are sibling
-        <h2>I am h2 tag</h2>
-    </div>
-</div> */
+// -----------------------------------------------------------------
 
-// const parent = React.createElement(
-//     "div", 
-//     {id: "parent"}, 
-//     React.createElement(
-//         "div", 
-//         {id: "child"},
-//          // Array of children
-//          [React.createElement(
-//             "h1", {}, "I am h1 tag"),React.createElement(
-//                 "h1", {}, "I am h1 tag")]
-//     )
-// ); 
+// This is how we create react element using JSX
 
-// ----------------------------------------------------------------------
+// this is not html this is jsx
+// JSX (transpiled before it reaches the JS engine)
 
-// Suppose if we have to create something like this
+// const jsxHeading = <h1 id="heading" >Namaste React using JSX</h1>
+// const root = ReactDOM.createRoot(document.getElementById("root"));
 
-{/* <div id="parent">
-    <div id="child">
-        <h1>I am h1 tag</h1> 
-        <h2>I am h2 tag</h2>
-    </div>
-</div id="child2">
-       <h1>I am h1 tag</h1> 
-       <h2>I am h2 tag</h2>
-    </div>
-</div> */}
+// root.render(jsxHeading);
 
-const parent = React.createElement("div", {id:"parent"},[
-    React.createElement("div", {id:"child"}, [
-        React.createElement("h1", {}, "I am an h1 tag"),
-        React.createElement("h2", {}, "I am an h2 tag")
-    ]),
-    React.createElement("div", {id:"child2"}, [
-        React.createElement("h1", {}, "I am an h1 tag"),
-        React.createElement("h2", {}, "I am an h2 tag")
-    ]),
-]);
+// ------------------------------------------------------------------------
 
+// Suppose if i have to write this in multiple lines - you have to wrap it inside round brackets
+
+const jsxHeading = (<h1 id="heading" >
+    Namaste React using JSX
+    </h1>);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
 
-
-// there is something known as JSX - will make our life easy
+root.render(jsxHeading);
 
